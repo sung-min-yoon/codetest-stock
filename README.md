@@ -26,6 +26,6 @@
 - IntelliJ IDEA의 HTTP Client를 사용하여 API 호출
 - root 경로의 `StockApplication.http` 파일 참조
 
-# 테스트 코드 실행
+## 테스트 코드 실행
 - `StockApplicationTests` 클래스에서 테스트 실행
 - `Testcontainers`를 사용하여 MySql, Redis 컨테이너 자동 실행 후 테스트 진행
