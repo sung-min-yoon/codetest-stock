@@ -1,0 +1,42 @@
+### 재고 초기 설정
+POST http://127.0.0.1:8080/api/stock
+Content-Type: application/json
+
+{
+  "productId": "apple",
+  "quantity": 1000,
+  "safetyQuantity": 5,
+  "stockStatusCode": "SOLD_OUT"
+
+}
+
+
+### 재고 증감
+PUT http://127.0.0.1:8080/api/stock/increase
+Content-Type: application/json
+
+{
+  "productId": "apple",
+  "quantity": 1
+}
+
+
+### 재고 차감
+PUT http://127.0.0.1:8080/api/stock/decrease
+Content-Type: application/json
+
+{
+  "productId": "apple",
+  "quantity": 1000
+}
+
+
+### 재고 조회
+GET http://127.0.0.1:8080/api/stock/apple
+
+### 없는 재고 조회
+GET http://127.0.0.1:8080/api/stock/apple1
+
+
+
+

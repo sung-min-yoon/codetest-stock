@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: stock
+
+  #MYSQL
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydatabase
+    username: TEST
+    password: TEST
+
+  #JPA
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    format_sql: true
+
+  #REDIS
+  data:
+    redis:
+      host: localhost
+      timeout: 60000 # 60 seconds
+      port: 6379
+
+  docker:
+    compose:
+      file: ./docker/docker-compose.yaml
+
+  logging:
+    level:
+      org:
+        hibernate:
+          type:
+            descriptor:
+              sql: trace
+

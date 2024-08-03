@@ -1,0 +1,14 @@
+services:
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=mydatabase'
+      - 'MYSQL_PASSWORD=TEST'
+      - 'MYSQL_ROOT_PASSWORD=TEST'
+      - 'MYSQL_USER=TEST'
+    ports:
+      - '3306:3306'
+  redis:
+    image: 'redislabs/rejson:latest'
+    ports:
+      - '6379:6379'
