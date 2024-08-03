@@ -29,3 +29,38 @@
 ## 테스트 코드 실행
 - `StockApplicationTests` 클래스에서 테스트 실행
 - `Testcontainers`를 사용하여 MySql, Redis 컨테이너 자동 실행 후 테스트 진행
+
+## 자동 생성되는 테이블 스크립트
+```
+#재고 메인
+CREATE TABLE STOCK_MAIN
+(
+PRODUCT_ID        VARCHAR(255)              NOT NULL
+PRIMARY KEY,
+QUANTITY          INT                       NULL,
+SAFETY_QUANTITY   INT                       NULL,
+STOCK_STATUS_CODE ENUM ('SALE', 'SOLD_OUT') NULL,
+VERSION           INT                       NULL
+);
+
+#재고 이력
+CREATE TABLE STOCK_HISTORY
+(
+ID                   BIGINT AUTO_INCREMENT
+PRIMARY KEY,
+ORDER_ID             VARCHAR(255)                                NULL,
+QUANTITY             INT                                         NULL,
+SAFETY_QUANTITY      INT                                         NULL,
+STOCK_OPERATION_CODE ENUM ('DECREASE', 'INCREASE', 'INITIALISE') NULL,
+STOCK_STATUS_CODE    ENUM ('SALE', 'SOLD_OUT')                   NULL,
+TIMESTAMP            DATETIME(6)                                 NULL,
+VERSION              INT                                         NULL,
+PRODUCT_ID           VARCHAR(255)                                NULL
+);
+
+CREATE INDEX IDX_STOCK_HISTORY_ORDER_ID
+ON STOCK_HISTORY (ORDER_ID);
+
+CREATE INDEX IDX_STOCK_HISTORY_PRODUCT_ID
+ON STOCK_HISTORY (PRODUCT_ID);
+```
