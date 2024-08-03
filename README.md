@@ -16,6 +16,8 @@
 - Spring Data Redis 3.3.2
 - Redisson 3.33.0
 - Lombok 1.18.22
+- Testcontainers 1.20.1
+
 ## 사용된 Docker Image
 - mysql:latest
 - redislabs/rejson:latest
@@ -23,3 +25,7 @@
 ## API 호출
 - IntelliJ IDEA의 HTTP Client를 사용하여 API 호출
 - root 경로의 `StockApplication.http` 파일 참조
+
+# 테스트 코드 실행
+- `StockApplicationTests` 클래스에서 테스트 실행
+- `Testcontainers`를 사용하여 MySql, Redis 컨테이너 자동 실행 후 테스트 진행
